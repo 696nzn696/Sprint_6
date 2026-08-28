@@ -2,6 +2,7 @@ import allure
 
 from selenium.webdriver.common.keys import Keys
 from locators.ordering_scooter_locators import OrderingScooterPageLocators
+from locators.main_locators import MainPageLocators
 from pages.base_page import BasePage
 
 class OrderingScooterPage(BasePage):
@@ -98,3 +99,34 @@ class OrderingScooterPage(BasePage):
         self.confirm_order_popup()
         self.wait_for_success_popup()
         return self.get_success_order_message()
+
+    @allure.step("Клик по кнопке 'Заказать' в форме заказа")
+    def click_order_button_in_form(self):
+        click_button = self.click_element(OrderingScooterPageLocators.ORDER_BUTTON_IN_FORM)
+        return click_button
+
+    @allure.step("Открытие формы заказа при помощи верхней кнопки 'Заказать'")
+    def open_form_header_order_button(self):
+        open_form = self.open_from_main_page(MainPageLocators.HEADER_ORDER_BUTTON)
+        return open_form
+
+    @allure.step("Клик по кнопке 'Далее' в форме заказа")
+    def click_submit_button(self):
+        click_button = self.click_element(OrderingScooterPageLocators.SUBMIT_BUTTON)
+        return click_button
+
+    @allure.step("Скролл до кнопки 'Заказать' внизу страницы")
+    def scroll_to_bottom_order_button(self):
+        scroll_to_button = self.scroll_to_element(MainPageLocators.BOTTOM_ORDER_BUTTON)
+        return scroll_to_button
+
+    @allure.step("Клик по кнопке 'Заказать' внизу страницы")
+    def click_bottom_order_button(self):
+        click_button = self.click_element(MainPageLocators.BOTTOM_ORDER_BUTTON)
+        return click_button
+
+    
+
+    
+
+    
